@@ -1,9 +1,9 @@
 "use client"
 
 import { motion } from "motion/react"
-import { Camera, ArrowRight, ChevronsDown } from "lucide-react"
+import { Camera, ArrowRight } from "lucide-react"
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectCube, Pagination, Autoplay } from 'swiper/modules'
+import { EffectCube, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-cube'
 import 'swiper/css/pagination'
@@ -60,11 +60,10 @@ export default function PhotoGallery({ onNext }) {
                         shadowScale: 0.94,
                     }}
                     pagination={{ clickable: true }}
-                    modules={[EffectCube, Pagination, Autoplay]}
+                    modules={[EffectCube, Pagination]}
                     spaceBetween={30}
                     slidesPerView={1.2} // slightly show adjacent slides
                     centeredSlides={true} // center the current slide
-                    autoplay={{ delay: 3500, disableOnInteraction: false }} // auto-rotate
                     className="mySwiper h-[400px] md:h-[500px]"
                 >
                     {photos.map((photo, index) => (
@@ -80,19 +79,9 @@ export default function PhotoGallery({ onNext }) {
                 </Swiper>
             </div>
 
-            {/* Swipe Hint */}
-            <motion.div
-                className="mt-6 flex flex-col items-center text-purple-200 text-lg"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-            >
-                <span className="mb-2">Swipe the images ⬇️</span>
-                <ChevronsDown className="w-6 h-6 animate-bounce text-pink-400" />
-            </motion.div>
-
             {/* Button */}
             <motion.div
-                className="mt-8"
+                className="mt-12"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
