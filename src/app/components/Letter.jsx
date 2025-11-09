@@ -11,18 +11,21 @@ export default function Letter() {
     const [currentText, setCurrentText] = useState("")
     const [showCursor, setShowCursor] = useState(true)
 
-    const letterText = `Aiman, Happy Birthday! 💖
+    const letterText = `My Dearest Marwa 💖
 
-Today is such a special day for both of us — the day you came into this world.  
+Happy Birthday, my love! 😊  
     
-You are the reason behind my smiles, the brightest part of my life. I think of you every single day, and I just want to see you always happy, always smiling, and never in tears. 
+On this special day, I pray that every moment of your life is filled with joy, peace, and endless blessings. 
 
-You are the most beautiful chapter of my life. Insha’Allah, very soon we will celebrate your birthday together. Even though distance separates us today, I pray that Allah brings us closer and keeps us together forever. Ameen.  
+May Allah grant you success, happiness, and love beyond your dreams. 
 
-This is my small effort, and I hope it makes you smile. Once again, Happy Birthday my love, Aiman My jaan, my cutie pie, my baby, my everything. I love you endlessly.  
+کتنی دل کش ہو تم کتنا دلجو ہوں میں
+کیا ستم ہے کہ ہم لوگ مر جائیں گے
 
-With all my love and warmest wishes,
-Malik Ibrahim ❤️`
+Really love you I know you don't trust me or this love shove wala thing but still love you, always.
+
+Yours forever,
+ De.Batman 😜 ❤️`
 
     useEffect(() => {
         if (showText) {
