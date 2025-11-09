@@ -18,12 +18,13 @@ export default function PhotoGallery({ onNext }) {
 
     return (
         <motion.div
-            className="min-h-screen flex flex-col items-center justify-center p-8 relative overflow-hidden"
+            className="min-h-screen flex flex-col items-center justify-center p-8 relative overflow-hidden bg-gradient-to-b from-purple-900 via-purple-800 to-purple-700"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.8 }}
         >
+            {/* Header */}
             <motion.div
                 className="text-center mb-8"
                 initial={{ y: -50, opacity: 0 }}
@@ -36,19 +37,19 @@ export default function PhotoGallery({ onNext }) {
                         rotate: [0, -10, 10, 0],
                         scale: [1, 1.1, 1],
                     }}
-                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+                    transition={{ duration: 4, repeat: Infinity }}
                 >
                     <Camera className="w-16 h-16 text-pink-400 mx-auto" />
                 </motion.div>
 
                 <h1 className="text-4xl md:text-6xl py-1 md:py-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 mb-6">
-                Happy Birthday to You 
+                    Happy Birthday to You
                 </h1>
                 <p className="text-xl text-purple-300">Please scroll down..🙂</p>
             </motion.div>
 
             {/* Cube Gallery */}
-            <div className="w-full max-w-sm mx-auto">
+            <div className="w-full max-w-md mx-auto">
                 <Swiper
                     effect={'cube'}
                     grabCursor={true}
@@ -58,22 +59,27 @@ export default function PhotoGallery({ onNext }) {
                         shadowOffset: 20,
                         shadowScale: 0.94,
                     }}
-                    pagination={true}
+                    pagination={{ clickable: true }}
                     modules={[EffectCube, Pagination]}
-                    className="mySwiper h-[350px] md:h-[450px]" // adjust height as needed
+                    spaceBetween={30}
+                    slidesPerView={1.2} // slightly show adjacent slides
+                    centeredSlides={true} // center the current slide
+                    className="mySwiper h-[400px] md:h-[500px]"
                 >
                     {photos.map((photo, index) => (
                         <SwiperSlide key={photo.id}>
                             <img
                                 src={photo.src || "/placeholder.svg"}
                                 alt={`Memory ${index + 1}`}
-                                className="w-full h-full object-cover rounded-xl"
+                                className="w-full h-full object-cover rounded-xl shadow-lg"
+                                onError={(e) => { e.currentTarget.src = "/placeholder.svg" }}
                             />
                         </SwiperSlide>
                     ))}
                 </Swiper>
             </div>
 
+            {/* Button */}
             <motion.div
                 className="mt-12"
                 initial={{ opacity: 0, y: 50 }}
